@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 const PORT = 3000;
 
@@ -14,6 +15,24 @@ const MIME_TYPES = {
     '.gif': 'image/gif',
     '.svg': 'image/svg+xml'
 };
+
+// Function to get local IP addresses
+function getLocalIPs() {
+    const interfaces = os.networkInterfaces();
+    const addresses = [];
+    
+    for (const interfaceName in interfaces) {
+        const interfaceInfo = interfaces[interfaceName];
+        for (const info of interfaceInfo) {
+            // Skip over non-IPv4 and internal (loopback) addresses
+            if (info.family === 'IPv4' && !info.internal) {
+                addresses.push(info.address);
+            }
+        }
+    }
+    
+    return addresses;
+}
 
 const server = http.createServer((req, res) => {
     console.log(`Request for ${req.url}`);
@@ -46,6 +65,16 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(PORT, () => {
+// Listen on all network interfaces (0.0.0.0) instead of just localhost
+server.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running at http://localhost:${PORT}/`);
+    
+    // Display all available IP addresses for network access
+    const ipAddresses = getLocalIPs();
+    if (ipAddresses.length > 0) {
+        console.log('\nAccess from other devices on the same network:');
+        ipAddresses.forEach(ip => {
+            console.log(`http://${ip}:${PORT}/`);
+        });
+    }
 }); 
