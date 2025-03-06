@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construct JS Test</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #test-canvas {
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="test-canvas"></div>
+    
+    <script src="js/lib/construct-browser.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Construct JS canvas
+            const canvas = new Construct({
+                container: document.getElementById('test-canvas'),
+                width: 400,
+                height: 300
+            });
+            
+            // Draw a rectangle
+            canvas.rect({
+                x: 50,
+                y: 50,
+                width: 100,
+                height: 100,
+                fill: 'blue'
+            });
+            
+            // Draw a circle
+            canvas.circle({
+                x: 250,
+                y: 150,
+                radius: 50,
+                fill: 'red'
+            });
+            
+            // Draw text
+            canvas.text({
+                x: 200,
+                y: 250,
+                text: 'Construct JS is working!',
+                fill: 'green',
+                font: 'bold 16px Arial',
+                align: 'center'
+            });
+        });
+    </script>
+</body>
+</html> 

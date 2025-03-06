@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a2e;
+    background-image: linear-gradient(45deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #e94560;
+}
+
+.game-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(233, 69, 96, 0.3);
+    padding: 25px;
+    text-align: center;
+    border: 2px solid rgba(233, 69, 96, 0.5);
+}
+
+h1 {
+    color: #e94560;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+}
+
+.score-container {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #ff9e00;
+}
+
+#game-canvas {
+    border: 3px solid #e94560;
+    margin: 0 auto 25px;
+    background-color: #87CEEB; /* Sky blue background */
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+    border-radius: 5px;
+}
+
+/* Removed mountain background effect */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#start-btn {
+    background-color: #ff9e00;
+    color: #1a1a2e;
+}
+
+#restart-btn {
+    background-color: #e94560;
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+} 

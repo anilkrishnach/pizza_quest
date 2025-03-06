@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball Hunt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjRkY0NTAwIiBkPSJNNDgwIDMyMGMwIDg4LjM2Ni03MS42MzQgMTYwLTE2MCAxNjBIMTYwQzcxLjYzNCA0ODAgMCA0MDguMzY2IDAgMzIwVjE5MkMwIDEwMy42MzQgNzEuNjM0IDMyIDE2MCAzMmgxNjBjODguMzY2IDAgMTYwIDcxLjYzNCAxNjAgMTYwdjEyOHoiLz48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTYwIDEyOGMtMTcuNjczIDAtMzIgMTQuMzI3LTMyIDMyIDAgMTcuNjczIDE0LjMyNyAzMiAzMiAxNy42NzMgMCAzMi0xNC4zMjcgMzItMzIgMC0xNy42NzMtMTQuMzI3LTMyLTMyLTMyeiIvPjxwYXRoIGZpbGw9IiMwMDAwMDAiIGQ9Ik0xNjAgMTYwYy04LjgzNyAwLTE2IDcuMTYzLTE2IDE2czYuMTYzIDE2IDE2IDE2IDE2LTcuMTYzIDE2LTE2LTcuMTYzLTE2LTE2LTE2em0xOTIgMGMtOC44MzcgMC0xNiA3LjE2My0xNiAxNnM2LjE2MyAxNiAxNiAxNiAxNi03LjE2MyAxNi0xNi03LjE2My0xNi0xNi0xNnoiLz48cGF0aCBmaWxsPSIjRkY4QzAwIiBkPSJNMzg0IDI1NmMwIDE3LjY3My0xNC4zMjcgMzItMzIgMzJIMTYwYy0xNy42NzMgMC0zMi0xNC4zMjctMzItMzIgMC0xNy42NzMgMTQuMzI3LTMyIDMyLTMyaDE5MmMxNy42NzMgMCAzMiAxNC4zMjcgMzIgMzJ6Ii8+PC9zdmc+" type="image/svg+xml">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Dragon Ball Hunt</h1>
+        <div class="score-container">
+            <span>Dragon Balls: </span>
+            <span id="score">0</span>
+        </div>
+        <div id="game-canvas"></div>
+        <div class="controls">
+            <button id="start-btn">Start Game</button>
+            <button id="restart-btn" disabled>Restart</button>
+        </div>
+    </div>
+    
+    <!-- Construct JS Library (browser-compatible version) -->
+    <script src="js/lib/construct-browser.js"></script>
+    <script src="game.js"></script>
+</body>
+</html> 
