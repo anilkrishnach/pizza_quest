@@ -4,13 +4,23 @@
   "main": "game.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'Build completed'",
+    "vercel-build": "echo 'Vercel build completed'",
+    "deploy": "vercel --prod"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Dragon game built with Construct JS",
   "dependencies": {
-    "construct-js": "^1.0.1"
+    "construct-js": "^1.0.1",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "vercel": "^41.3.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }

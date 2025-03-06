@@ -1,22 +1,12 @@
-const http = require('http');
-const fs = require('fs');
+const express = require('express');
 const path = require('path');
 const os = require('os');
 
-const PORT = 3000;
+const app = express();
+// Use environment port or default to 3000
+const PORT = process.env.PORT || 3000;
 
-const MIME_TYPES = {
-    '.html': 'text/html',
-    '.css': 'text/css',
-    '.js': 'text/javascript',
-    '.json': 'application/json',
-    '.png': 'image/png',
-    '.jpg': 'image/jpeg',
-    '.gif': 'image/gif',
-    '.svg': 'image/svg+xml'
-};
-
-// Function to get local IP addresses
+// Function to get local IP addresses (only used in development)
 function getLocalIPs() {
     const interfaces = os.networkInterfaces();
     const addresses = [];
@@ -34,47 +24,35 @@ function getLocalIPs() {
     return addresses;
 }
 
-const server = http.createServer((req, res) => {
+// Serve static files from the current directory
+app.use(express.static(__dirname));
+
+// Log all requests
+app.use((req, res, next) => {
     console.log(`Request for ${req.url}`);
-    
-    // Normalize URL to prevent directory traversal attacks
-    let filePath = '.' + req.url;
-    if (filePath === './') {
-        filePath = './index.html';
-    }
-    
-    const extname = path.extname(filePath);
-    let contentType = MIME_TYPES[extname] || 'application/octet-stream';
-    
-    fs.readFile(filePath, (err, content) => {
-        if (err) {
-            if (err.code === 'ENOENT') {
-                // Page not found
-                res.writeHead(404, { 'Content-Type': 'text/html' });
-                res.end('<h1>404 Not Found</h1>', 'utf-8');
-            } else {
-                // Server error
-                res.writeHead(500);
-                res.end(`Server Error: ${err.code}`);
-            }
-        } else {
-            // Success
-            res.writeHead(200, { 'Content-Type': contentType });
-            res.end(content, 'utf-8');
-        }
-    });
+    next();
 });
 
-// Listen on all network interfaces (0.0.0.0) instead of just localhost
-server.listen(PORT, '0.0.0.0', () => {
+// Handle 404 errors
+app.use((req, res) => {
+    res.status(404).send('<h1>404 Not Found</h1>');
+});
+
+// Start the server
+const server = app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
     
-    // Display all available IP addresses for network access
-    const ipAddresses = getLocalIPs();
-    if (ipAddresses.length > 0) {
-        console.log('\nAccess from other devices on the same network:');
-        ipAddresses.forEach(ip => {
-            console.log(`http://${ip}:${PORT}/`);
-        });
+    // Only show local IPs in development environment
+    if (process.env.NODE_ENV !== 'production') {
+        const ipAddresses = getLocalIPs();
+        if (ipAddresses.length > 0) {
+            console.log('\nAccess from other devices on the same network:');
+            ipAddresses.forEach(ip => {
+                console.log(`http://${ip}:${PORT}/`);
+            });
+        }
     }
-}); 
+});
+
+// Export the Express API for Vercel
+module.exports = app; 
