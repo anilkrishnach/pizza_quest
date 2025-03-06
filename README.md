@@ -1,6 +1,6 @@
-# Snake Game using Construct JS
+# Pinnacle Watchers - Dragon Game using Construct JS
 
-A classic Snake game built with HTML, CSS, and JavaScript using a custom implementation of the Construct JS library.
+A classic Snake game transformed into a Dragon game, built with HTML, CSS, and JavaScript using a custom implementation of the Construct JS library.
 
 ## Installation
 
@@ -31,7 +31,7 @@ You can also open the `index.html` file directly in your browser.
 
 ## About the Construct JS Implementation
 
-This project uses a custom browser-compatible implementation of the Construct JS library (`js/lib/construct-browser.js`). The original Construct JS library is designed for Node.js environments, but our implementation provides the necessary functionality for the snake game in a browser environment.
+This project uses a custom browser-compatible implementation of the Construct JS library (`js/lib/construct-browser.js`). The original Construct JS library is designed for Node.js environments, but our implementation provides the necessary functionality for the dragon game in a browser environment.
 
 ## Testing Construct JS
 
@@ -39,30 +39,32 @@ To verify that the Construct JS implementation is working correctly, you can ope
 
 ## Features
 
-- Classic snake gameplay
+- Dragon game inspired by Dragon Ball
 - Score tracking
 - Game controls with arrow keys
 - Start and restart functionality
 - Responsive design
+- Custom dragon head image
+- Colorful dragon balls
 
 ## How to Play
 
 1. Click the "Start Game" button to begin
-2. Use the arrow keys to control the snake:
+2. Use the arrow keys to control the dragon:
    - ↑ (Up Arrow): Move up
    - ↓ (Down Arrow): Move down
    - ← (Left Arrow): Move left
    - → (Right Arrow): Move right
-3. Eat the red food to grow the snake and increase your score
-4. Avoid hitting the walls or the snake's own body
+3. Collect the dragon balls to grow the dragon and increase your score
+4. Avoid hitting the walls or the dragon's own body
 5. When the game is over, click "Restart" to play again
 
 ## Game Logic
 
 - The game is played on a 20x20 grid
-- The snake starts with 3 segments and moves to the right
-- Each time the snake eats food, it grows by one segment and the score increases by 10
-- The game ends when the snake hits a wall or itself
+- The dragon starts with 3 segments and moves to the right
+- Each time the dragon collects a dragon ball, it grows by one segment and the score increases
+- The game ends when the dragon hits a wall or itself
 
 ## Troubleshooting
 
@@ -74,4 +76,4 @@ If you encounter issues with the game:
 
 ## License
 
-This project is open source and available for personal and educational use. 
+This project is open source and available for personal and educational use.
