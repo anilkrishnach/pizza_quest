@@ -1,9 +1,18 @@
 {
   "version": 2,
   "builds": [
-    { "src": "server.js", "use": "@vercel/node" }
+    { "src": "server.js", "use": "@vercel/node" },
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "*.css", "use": "@vercel/static" },
+    { "src": "*.js", "use": "@vercel/static" },
+    { "src": "images/**", "use": "@vercel/static" },
+    { "src": "js/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "server.js" }
+    { "src": "/images/(.*)", "dest": "/images/$1" },
+    { "src": "/js/(.*)", "dest": "/js/$1" },
+    { "src": "/style.css", "dest": "/style.css" },
+    { "src": "/game.js", "dest": "/game.js" },
+    { "src": "/(.*)", "dest": "/server.js" }
   ]
 } 

@@ -25,7 +25,20 @@ function getLocalIPs() {
 }
 
 // Serve static files from the current directory
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname)));
+
+// Explicitly define routes for key files
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/game.js', (req, res) => {
+    res.sendFile(path.join(__dirname, 'game.js'));
+});
+
+app.get('/style.css', (req, res) => {
+    res.sendFile(path.join(__dirname, 'style.css'));
+});
 
 // Log all requests
 app.use((req, res, next) => {
@@ -33,9 +46,9 @@ app.use((req, res, next) => {
     next();
 });
 
-// Handle 404 errors
+// Handle 404 errors - this should be the last middleware
 app.use((req, res) => {
-    res.status(404).send('<h1>404 Not Found</h1>');
+    res.status(404).send('<h1>404 Not Found</h1><p>The requested resource could not be found.</p>');
 });
 
 // Start the server

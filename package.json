@@ -1,15 +1,15 @@
 {
-  "name": "hackathon",
+  "name": "dragon-game",
   "version": "1.0.0",
-  "main": "game.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "echo 'Build completed'",
-    "vercel-build": "echo 'Vercel build completed'",
+    "build": "echo 'Build step completed'",
+    "vercel-build": "echo 'Vercel build step completed'",
     "deploy": "vercel --prod"
   },
-  "keywords": [],
+  "keywords": ["game", "dragon", "construct-js"],
   "author": "",
   "license": "ISC",
   "description": "Dragon game built with Construct JS",
